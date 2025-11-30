@@ -60,7 +60,7 @@ const Hero = () => {
 };`;
 
   const handlePublish = () => {
-    const siteUrl = "https://your-site.example.com";
+    const siteUrl = window.location.origin;
     
     toast({
       title: "Публикация началась",
@@ -72,7 +72,7 @@ const Hero = () => {
         title: "✅ Проект опубликован!",
         description: (
           <div className="flex flex-col gap-2">
-            <span>Ваш сайт доступен по адресу:</span>
+            <span>Ваш сайт уже доступен по адресу:</span>
             <a 
               href={siteUrl} 
               target="_blank" 
