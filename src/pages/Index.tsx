@@ -6,6 +6,7 @@ import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "@/components/ui/use-toast";
 
 const Index = () => {
   const [message, setMessage] = useState("");
@@ -58,6 +59,20 @@ const Hero = () => {
   );
 };`;
 
+  const handlePublish = () => {
+    toast({
+      title: "Публикация началась",
+      description: "Ваш проект будет доступен через несколько секунд...",
+    });
+    
+    setTimeout(() => {
+      toast({
+        title: "✅ Проект опубликован!",
+        description: "Ваш сайт доступен по адресу: https://your-site.example.com",
+      });
+    }, 2000);
+  };
+
   const handleSendMessage = () => {
     if (!message.trim()) return;
     
@@ -97,7 +112,7 @@ const Hero = () => {
               <Icon name="Github" size={16} className="mr-2" />
               GitHub
             </Button>
-            <Button size="sm" className="gradient-bg text-white">
+            <Button size="sm" className="gradient-bg text-white" onClick={handlePublish}>
               <Icon name="Rocket" size={16} className="mr-2" />
               Опубликовать
             </Button>
