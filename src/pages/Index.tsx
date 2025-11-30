@@ -60,6 +60,8 @@ const Hero = () => {
 };`;
 
   const handlePublish = () => {
+    const siteUrl = "https://your-site.example.com";
+    
     toast({
       title: "Публикация началась",
       description: "Ваш проект будет доступен через несколько секунд...",
@@ -68,7 +70,19 @@ const Hero = () => {
     setTimeout(() => {
       toast({
         title: "✅ Проект опубликован!",
-        description: "Ваш сайт доступен по адресу: https://your-site.example.com",
+        description: (
+          <div className="flex flex-col gap-2">
+            <span>Ваш сайт доступен по адресу:</span>
+            <a 
+              href={siteUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-medium"
+            >
+              {siteUrl}
+            </a>
+          </div>
+        ),
       });
     }, 2000);
   };
